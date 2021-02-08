@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Гонки</title>
+    </head>
+    <body>
+        <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+        <script>
+            var Car = function (x, y) {
+                this.x = x;
+                this.y = y;
+            };
+
+            Car.prototype.draw = function(){
+                var carHtml = '<img src="https://image.freepik.com/free-vector/_53876-12379.jpg">';   
+                this.carElement = $(carHtml);
+
+                this.carElement.css({
+                    position: "absolute",
+                    width: 100,
+                    height: 100,
+                    left: this.x,
+                    top: this.y
+                });
+                $("body").append(this.carElement);
+            };
+
+            Car.prototype.moveRight = function(){
+                this.x +=5;
+
+                this.carElement.css({
+                    left: this.x,
+                    top: this.y
+                });
+            }
+
+            var tesla = new Car(20, 20);
+            var nissan = new Car(20, 100);
+            /* nissan.draw(); */
+            /*
+                var drawCar = function (car) {
+                    var carHtml = '<img src="https://image.freepik.com/free-vector/_53876-12379.jpg">';
+                    var carElement = $(carHtml);
+                    carElement.css({
+                        position: "absolute",
+                        width: 100,
+                        height: 100,
+                        left: car.x,
+                        top: car.y
+                        }); 
+                $("body").append(carElement);
+                };
+
+                var tesla = new Car(20, 20);
+                var nissan = new Car(100, 200);
+                drawCar(tesla);
+                drawCar(nissan);
+                */
+        </script>
+    </body>
+</html>
